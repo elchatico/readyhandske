@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about our mission, vision and values." />
+  <title>About Us | DuoOrg</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+  <header class="navbar">
+ <div class="logo">
+  <a href="index.html" class="logo-link">
+    <img src="images/logo.png" alt="Ready Hands Logo">
+    <span>Ready Hands Initiative</span>
+  </a>
+</div>
+
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav id="nav-menu">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="cta">Book a Session</a></li>
+    </ul>
+  </nav>
+  <button id="darkToggle" class="dark-btn" title="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+</header>
+
+  <section class="about-hero">
+    <h1>Our Story</h1>
+    <p>We’re just two people crazy enough to believe we can change the world through impact and tech.</p>
+  </section>
+
+  <section class="values">
+    <div class="card">
+      <h2>🚀 Mission</h2>
+      <p>To empower communities with the tools and knowledge to thrive through tech, creativity, and service.</p>
+    </div>
+    <div class="card">
+      <h2>🌍 Vision</h2>
+      <p>To be a leading light of youth-powered innovation in Africa and beyond.</p>
+    </div>
+    <div class="card">
+      <h2>❤️ Core Values</h2>
+      <ul>
+        <li>Compassion</li>
+        <li>Teamwork</li>
+        <li>Creativity</li>
+        <li>Resilience</li>
+      </ul>
+    </div>
+  </section>
+<footer class="footer">
+  <p>&copy; 2025 Ready Hands Initiative • All Rights Reserved</p>
+  <div class="footer-socials">
+    <a href="https://wa.me/254702093678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/readyhandske" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+<script>
+  const burger = document.getElementById("burger");
+  const navMenu = document.getElementById("nav-menu");
+
+  burger.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    burger.innerHTML = navMenu.classList.contains("open")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+</script>
+<script>
+  const toggle = document.getElementById('darkToggle');
+
+  // Apply saved dark mode on page load
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+    toggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+</script>
+
+
+</body>
+</html>

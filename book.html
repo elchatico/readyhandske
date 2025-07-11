@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a lifesaving training session with Ready Hands Initiative." />
+  <title>Book a Session | Ready Hands</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+  <header class="navbar">
+ <div class="logo">
+  <a href="index.html" class="logo-link">
+    <img src="images/logo.png" alt="Ready Hands Logo">
+    <span>Ready Hands Initiative</span>
+  </a>
+</div>
+
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav id="nav-menu">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="cta">Book a Session</a></li>
+    </ul>
+  </nav>
+  <button id="darkToggle" class="dark-btn" title="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+</header>
+
+
+
+  <section class="booking-section">
+    <h1>Book a Lifesaving Session</h1>
+    <p>Fill in the form below and we’ll reach out to schedule your session!</p>
+
+   <form class="booking-form" id="whatsappForm">
+  <input type="text" placeholder="Full Name" name="name" id="name" required>
+  <input type="email" placeholder="Email Address" name="email" id="email" required>
+  <input type="text" placeholder="Phone Number" name="phone" id="phone" required>
+  <input type="text" placeholder="School/Organization" name="org" id="org" required>
+  <textarea placeholder="Preferred Date / Notes" name="message" id="message" rows="4"></textarea>
+  <button type="submit" class="btn-primary">Send via WhatsApp</button>
+</form>
+
+  </section>
+<footer class="footer">
+  <p>&copy; 2025 Ready Hands Initiative • All Rights Reserved</p>
+  <div class="footer-socials">
+    <a href="https://wa.me/254702093678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/readyhandske" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+<script>
+  document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const org = document.getElementById("org").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const encodedMessage = encodeURIComponent(
+      `Hello Ready Hands! 👋\n\nI'd like to book a training session.\n\n👤 Name: ${name}\n📧 Email: ${email}\n📱 Phone: ${phone}\n🏫 Organization: ${org}\n📝 Notes: ${message}`
+    );
+
+    const whatsappNumber = "254702093678"; // Replace this with your actual number!
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>
+<script>
+  const burger = document.getElementById("burger");
+  const navMenu = document.getElementById("nav-menu");
+
+  burger.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    burger.innerHTML = navMenu.classList.contains("open")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+</script>
+<script>
+  const toggle = document.getElementById('darkToggle');
+
+  // Apply saved dark mode on page load
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+    toggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+</script>
+
+
+</body>
+</html>

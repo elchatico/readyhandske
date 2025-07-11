@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore photos from Ready Hands Initiative trainings and events." />
+  <title>Gallery | Ready Hands</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+
+</head>
+<body>
+
+  <header class="navbar">
+  <div class="logo">
+  <a href="index.html" class="logo-link">
+    <img src="images/logo.png" alt="Ready Hands Logo">
+    <span>Ready Hands Initiative</span>
+  </a>
+</div>
+
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav id="nav-menu">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="cta">Book a Session</a></li>
+    </ul>
+  </nav>
+  <button id="darkToggle" class="dark-btn" title="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+</header>
+
+
+
+  <section class="gallery-section">
+    <h1>Gallery</h1>
+    <p>Snapshots from our life-saving adventures!</p>
+
+    <div class="gallery-grid">
+      <img src="images/event1.jpg" alt="Training Event 1" />
+      <img src="images/event2.jpg" alt="Group Session" />
+      <img src="images/event3.jpg" alt="CPR Practice" />
+      <img src="images/event4.jpg" alt="Bandaging Skills" />
+      <img src="images/event5.jpg" alt="Students in Action" />
+      <img src="images/event6.jpg" alt="Emergency Drill" />
+    </div>
+  </section>
+<footer class="footer">
+  <p>&copy; 2025 Ready Hands Initiative • All Rights Reserved</p>
+  <div class="footer-socials">
+    <a href="https://wa.me/254702093678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/readyhandske" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+<script>
+  const burger = document.getElementById("burger");
+  const navMenu = document.getElementById("nav-menu");
+
+  burger.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    burger.innerHTML = navMenu.classList.contains("open")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+</script>
+<script>
+  const toggle = document.getElementById('darkToggle');
+
+  // Apply saved dark mode on page load
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+    toggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+</script>
+
+</body>
+</html>
