@@ -88,9 +88,9 @@ body {
   background: #0f5bd7;
 }
 .about-hero {
-  text-align: center;
-  margin-top: 80px;
-  padding: 0 20px 50px;
+  text-align: start;
+  margin-top: 10px;
+  padding: 0 10px 20px;
 }
 
 .about-hero h1 {
@@ -101,8 +101,8 @@ body {
 .about-hero p {
   font-size: 1.1rem;
   color: #666;
-  max-width: 600px;
   margin: 0 auto;
+  flex: start;
 }
 
 .values {
